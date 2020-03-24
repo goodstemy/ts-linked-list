@@ -1,10 +1,19 @@
 import Node from './node';
 
-export class List {
+/**
+ * Linked list class
+ */
+export class LinkedList {
 	head: Node;
 	tail: Node;
 
-	append(value: number | string): List {
+	/**
+	 * Add value to the tail
+	 *
+	 * @param {Number|String} value to store
+	 * @returns {LinkedList} this
+	 */
+	append(value: number | string): LinkedList {
 		const node = new Node(value);
 
 		if (!this.head) {
@@ -20,7 +29,13 @@ export class List {
 		return this;
 	}
 
-	prepend(value: number | string): List {
+	/**
+	 * Add value to the head
+	 *
+	 * @param {Number|String} value to store
+	 * @returns {LinkedList} this
+	 */
+	prepend(value: number | string): LinkedList {
 		const node = new Node(value, this.head);
 
 		this.head = node;
@@ -32,6 +47,12 @@ export class List {
 		return this;
 	}
 
+	/**
+	 * Delete node by value
+	 *
+	 * @param {Number|String} value to delete
+	 * @returns {Node} deleted node
+	 */
 	delete(value: number | string): Node {
 		if (!this.head) {
 			return null;
@@ -66,6 +87,12 @@ export class List {
 		return deletedNode;
 	}
 
+	/**
+	 * Find node by value
+	 *
+	 * @param {Number|String} value to find
+	 * @returns {Node} found node
+	 */
 	find(value: number | string): Node {
 		if (!this.head) {
 			return null;
@@ -84,6 +111,11 @@ export class List {
 		return null;
 	}
 
+	/**
+	 * Delete tail node
+	 *
+	 * @returns {Node} deleted tail
+	 */
 	deleteTail(): Node {
 		let tail = this.tail;
 
@@ -109,6 +141,11 @@ export class List {
 		return tail;
 	}
 
+	/**
+	 * Delete head node
+	 *
+	 * @returns {Node} deleted head
+	 */
 	deleteHead(): Node {
 		if (!this.head) {
 			return null;
@@ -128,7 +165,13 @@ export class List {
 		return node;
 	}
 
-	fromArray(values: Array<number|string>): List {
+	/**
+	 * Build linked list from basic js array
+	 *
+	 * @param {Array<Number|String>} values[] array
+	 * @returns {LinkedList} list instance
+	 */
+	fromArray(values: Array<number|string>): LinkedList {
 		for (let i = 0; i < values.length; i++) {
 			const value = values[i];
 
@@ -138,6 +181,11 @@ export class List {
 		return this;
 	}
 
+	/**
+	 * Build basic js array from linked list
+	 *
+	 * @returns {Array<Number|String>} array of values
+	 */
 	toArray(): Array<number|string> {
 		const result = [];
 
@@ -152,11 +200,21 @@ export class List {
 		return result;
 	}
 
+	/**
+	 * Build string with comma separator from linked list values from head to tail
+	 *
+	 * @returns {String} list string
+	 */
 	toString(): string {
 		return this.toArray().toString();
 	}
 
-	reverse(): List {
+	/**
+	 * Just reverse linked list
+	 *
+	 * @returns {LinkedList} list instance
+	 */
+	reverse(): LinkedList {
 		const list = this.fromArray(this.toArray().reverse());
 
 		this.head = list.head;
