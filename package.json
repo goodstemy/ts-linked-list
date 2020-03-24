@@ -1,0 +1,22 @@
+{
+  "name": "ts-linked-list-light",
+  "version": "1.0.0",
+  "description": "Basic linked list implementation on typescript",
+  "main": "build/linkedList.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodstemy/ts-linked-list.git"
+  },
+  "keywords": [
+    "linked-list"
+  ],
+  "author": "goodstemy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goodstemy/ts-linked-list/issues"
+  },
+  "homepage": "https://github.com/goodstemy/ts-linked-list#readme"
+}
